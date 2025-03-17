@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListNotesActivity extends  AddNoteActivity {
+public class ListNotesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     @Override
@@ -16,6 +17,13 @@ public class ListNotesActivity extends  AddNoteActivity {
         setContentView(R.layout.activity_list_notes);
 
         recyclerView = findViewById(R.id.ListNotesRV);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new NoteAdapter(this, NoteStorage.getInstance().getNotes()));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new NoteAdapter(this, NoteStorage.getInstance().getNotes()));
     }
