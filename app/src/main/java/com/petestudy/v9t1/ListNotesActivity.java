@@ -25,7 +25,6 @@ public class ListNotesActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new NoteAdapter(this, NoteStorage.getInstance().getNotes()));
     }
 
     public void switchToMain(View view) {

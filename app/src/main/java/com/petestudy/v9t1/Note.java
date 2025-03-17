@@ -19,7 +19,7 @@ public class Note {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH +1);
+        int month = calendar.get(Calendar.MONTH) +1;
         int year = calendar.get(Calendar.YEAR);
         this.timeAndDate = String.format("%02d:%02d %d.%d.%d", hour, minute, day, month, year);
     }
